@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - file: src={{ curdir }}/files/{{ item }} dest=~/.{{ item }} state=link
+      with_items:
+        - vimrc
+
+    - git:
+        repo: https://github.com/VundleVim/Vundle.vim.git
+        dest: ~/.vim/bundle/Vundle.vim
+        # version: v0.10.2
+
+    - shell: vim -i NONE -c PluginInstall -c quitall
