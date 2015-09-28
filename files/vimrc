@@ -157,8 +157,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
+" let g:syntastic_error_symbol = "✗"
+" let g:syntastic_warning_symbol = "⚠"
 
 let g:jsx_ext_required = 0
 
@@ -235,6 +235,7 @@ nmap <leader>l mQviwu`Q
 nmap <C-\> :NERDTreeFind<CR>
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
+let g:NERDTreeDirArrows=0
 
 nmap <silent> // :nohlsearch<CR>
 noremap ,hl :set hlsearch! hlsearch?<CR>

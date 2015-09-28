@@ -1,0 +1,30 @@
+---
+- hosts: all
+
+  tasks:
+    - apt: name={{ item }} state=latest
+      become: yes
+      with_items:
+        - ack-grep
+        - exuberant-ctags
+        - curl
+        - python-apt
+        - python-pycurl
+        - python-dev
+        - python-setuptools
+        - flex
+        - python-pip
+
+      when: ansible_distribution == 'Ubuntu'
+      tags: always
+
+    - apt: name=linux-image-generic-lts-trusty
+      become: yes
+      tags: docker
+
+    - shell: curl -sSL https://get.docker.com/ | sh
+      tags: docker
+
+    - pip: name=docker-compose
+      tags: docker
+

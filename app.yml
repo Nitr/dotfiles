@@ -1,0 +1,9 @@
+---
+- hosts: all
+
+  tasks:
+    - file: path=/projects owner=ubuntu group=ubuntu state=directory mode=0755
+      become: yes
+    - git: repo={{ repository }} dest=/projects/{{ app_name }} update=no version=backend
+    - shell: "cd /projects/{{ app_name }}/docker && sudo docker-compose up -d"
+
